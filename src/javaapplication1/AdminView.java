@@ -21,33 +21,32 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class AdminView extends JFrame{
-    private ImageIcon icon;
-    private Container c;
-    private JLabel userLabel,passLabel,imgLabel;
-    private Font f,f2;
-    private JTextField tf1,tf2;
-    private JPasswordField jp1;
-    private JButton btn1,btn2,btn3,btn4;
-    private Cursor cursor;
-    private JTextArea ta;
-    private JScrollPane scroll;
-    private String s1;
-    
-    AdminView(){
-       initComponents();
-       this.setVisible(true);
+
+class Init3 extends JFrame{
+    ImageIcon icon;
+    Container c;
+    JLabel userLabel,passLabel,imgLabel;
+    Font f,f2;
+    JTextField tf1,tf2;
+    JPasswordField jp1;
+    JButton btn1,btn2,btn3,btn4;
+    Cursor cursor;
+    JTextArea ta;
+    JScrollPane scroll;
+    String s1;
+     void initComponents(int a,int b,int c,int d){
+        this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setSize(900,600);
         //frame.setLocationRelativeTo(null);
 
         /*frame.setLocation(200,50);*/
-        this.setBounds(500,250,900,600);
-        this.setTitle("New Frame");
+        this.setBounds(a,b,c,d);
+        this.setTitle("Frame demo");
         this.setResizable(false);
     }
     
-    public void initComponents(){
+     void initComponents(){
 
        //content----------------------------------------
        c = this.getContentPane(); 
@@ -84,7 +83,20 @@ public class AdminView extends JFrame{
        scroll = new JScrollPane(ta,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
        scroll.setBounds(250,150,400,300);
        c.add(scroll);
-       //Handler Class-------------------------------------
+
+    }
+}
+public class AdminView extends Init3{
+    
+    
+    AdminView(){
+       super.initComponents();
+       initComponents(500,250,900,600);
+       initComponents();
+    }
+    void initComponents(){
+        //Handler Class-------------------------------------
+       
        Handler handler = new Handler();
        
        //Cursor--------------------------------------------
@@ -129,10 +141,8 @@ public class AdminView extends JFrame{
         } catch (IOException ee) {
             ee.printStackTrace();
         }
-       
-       
-       
     }
+    
     class Handler implements ActionListener{
          public void actionPerformed(ActionEvent e) {
              

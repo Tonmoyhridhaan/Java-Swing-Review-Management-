@@ -20,32 +20,29 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 
-public class Registration extends JFrame{
-    private ImageIcon icon;
-    private Container c;
-    private JLabel userLabel,passLabel,imgLabel,type,title;
-    private Font f,f2,f3;
-    private JTextField tf1,tf2;
-    private JPasswordField jp1;
-    private JButton btn1,btn2,btn3;
-    private Cursor cursor;
-    private JRadioButton admin,user,tech;
-    private ButtonGroup grp;
-    Registration(){
-       initComponents();
-       
-       
+class Init4 extends JFrame{
+     ImageIcon icon;
+     Container c;
+     JLabel userLabel,passLabel,imgLabel,type,title;
+     Font f,f2,f3;
+     JTextField tf1,tf2;
+     JPasswordField jp1;
+     JButton btn1,btn2,btn3;
+     Cursor cursor;
+     JRadioButton admin,user,tech;
+     ButtonGroup grp;
+      void initComponents(int a,int b,int c,int d){
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setSize(900,600);
         //frame.setLocationRelativeTo(null);
 
         /*frame.setLocation(200,50);*/
-        this.setBounds(500,250,900,600);
+        this.setBounds(a,b,c,d);
         this.setTitle("Frame demo");
         this.setResizable(false);
     }
-    public void initComponents(){
+     void initComponents(){
         
        //content----------------------------------------
        c = this.getContentPane(); 
@@ -67,10 +64,7 @@ public class Registration extends JFrame{
        c.add(imgLabel);
        //radio button gropu-----------------------------
        grp = new ButtonGroup();
-       
-       
-       
-       
+
        //jlabel------------------------------------------
        title = new JLabel();
        title.setText("Registration Form");
@@ -105,7 +99,21 @@ public class Registration extends JFrame{
        tf2.setFont(f2);
        c.add(tf2);
        
-       //Handler Class-------------------------------------
+       
+     
+    }
+}
+public class Registration extends Init4{
+   
+    Registration(){
+        super.initComponents();
+        initComponents(500,250,900,600);
+        initComponents();
+        
+       
+    }
+    void initComponents(){
+        //Handler Class-------------------------------------
        Handler handler = new Handler();
        //Handler2 handler2 = new Handler2();
        tf1.addActionListener(handler);
@@ -131,9 +139,8 @@ public class Registration extends JFrame{
        btn1.addActionListener(handler);
        btn2.addActionListener(handler);
        btn3.addActionListener(handler);
-
-       
     }
+    
    
     class Handler implements ActionListener{
          static String type="";
@@ -197,9 +204,7 @@ public class Registration extends JFrame{
        
     
     public static void main(String[] args) {
-        
-      
-        
+
         Registration frame = new Registration();
 
     }
