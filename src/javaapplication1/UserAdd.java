@@ -21,48 +21,31 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class UserAdd extends JFrame{
-    private ImageIcon icon;
-    private Container c;
-    private JLabel id,date,issue,app,userLabel,imgLabel;
-    private Font f,f2;
-    private JTextField tf1,tf2,tf3,tf4;
-    private JPasswordField jp1;
-    private JButton btn1,btn2,btn3,btn4;
-    private Cursor cursor;
-    private JTextArea ta;
-    private JScrollPane scroll;
-    private String s1;
-    
-    UserAdd(){
-       initComponents();
-       this.setVisible(true);
+class Init8 extends JFrame{
+     ImageIcon icon;
+     Container c;
+     JLabel id,date,issue,app,userLabel,imgLabel;
+     Font f,f2;
+     JTextField tf1,tf2,tf3,tf4;
+     JPasswordField jp1;
+     JButton btn1,btn2,btn3,btn4;
+     Cursor cursor;
+     JTextArea ta;
+     JScrollPane scroll;
+     String s1;
+       void initComponents(int a,int b,int c,int d){
+        this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setSize(900,600);
         //frame.setLocationRelativeTo(null);
 
         /*frame.setLocation(200,50);*/
-        this.setBounds(500,250,900,600);
-        this.setTitle("New Frame");
+        this.setBounds(a,b,c,d);
+        this.setTitle("Frame demo");
         this.setResizable(false);
     }
-    UserAdd(String s){
-       initComponents();
-       s1 = s;
-       this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setSize(900,600);
-        //frame.setLocationRelativeTo(null);
+     void initComponents(){
 
-        /*frame.setLocation(200,50);*/
-        this.setBounds(500,250,900,600);
-        this.setTitle("New Frame");
-        this.setResizable(false);
-    }
-    public void initComponents(){
-        
-        
-        
        //content----------------------------------------
        c = this.getContentPane(); 
        c.setLayout(null);
@@ -143,7 +126,29 @@ public class UserAdd extends JFrame{
        c.add(scroll);
        
        //Handler Class-------------------------------------
-       Handler handler = new Handler();
+       
+       
+    }
+}
+public class UserAdd extends Init8{
+    
+    
+    UserAdd(){
+       super.initComponents();
+       initComponents(500,250,900,600);
+       initComponents();
+    }
+    UserAdd(String s){
+       super.initComponents();
+       s1 = s;
+       initComponents(500,250,900,600);
+       initComponents();
+    }
+   
+       
+    @Override
+    void initComponents(){
+        Handler handler = new Handler();
        
        //Cursor--------------------------------------------
        cursor = new Cursor(Cursor.HAND_CURSOR);
@@ -170,8 +175,8 @@ public class UserAdd extends JFrame{
        btn2.addActionListener(handler);
        btn3.addActionListener(handler);
        btn4.addActionListener(handler);
-       
     }
+   
     class Handler implements ActionListener{
          public void actionPerformed(ActionEvent e) {
                if(e.getSource()==btn1){

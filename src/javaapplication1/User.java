@@ -18,48 +18,31 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class User extends JFrame{
-    private ImageIcon icon;
-    private Container c;
-    private JLabel userLabel,passLabel,imgLabel;
-    private Font f,f2;
-    private JTextField tf1,tf2;
-    private JPasswordField jp1;
-    private JButton btn1,btn2,btn3;
-    private Cursor cursor;
-    private JTextArea ta;
-    private JScrollPane scroll;
-    private String s1;
-    
-    User(){
-       initComponents();
-       this.setVisible(true);
+class Init7 extends JFrame{
+     ImageIcon icon;
+     Container c;
+     JLabel userLabel,passLabel,imgLabel;
+     Font f,f2;
+     JTextField tf1,tf2;
+     JPasswordField jp1;
+     JButton btn1,btn2,btn3;
+     Cursor cursor;
+     JTextArea ta;
+     JScrollPane scroll;
+     String s1;
+      void initComponents(int a,int b,int c,int d){
+        this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setSize(900,600);
         //frame.setLocationRelativeTo(null);
 
         /*frame.setLocation(200,50);*/
-        this.setBounds(500,250,900,600);
-        this.setTitle("New Frame");
+        this.setBounds(a,b,c,d);
+        this.setTitle("Frame demo");
         this.setResizable(false);
     }
-    User(String s){
-        s1=s;
-       initComponents();
-       this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setSize(900,600);
-        //frame.setLocationRelativeTo(null);
+     void initComponents(){
 
-        /*frame.setLocation(200,50);*/
-        this.setBounds(500,250,900,600);
-        this.setTitle("New Frame");
-        this.setResizable(false);
-    }
-    public void initComponents(){
-        
-        
-        
        //content----------------------------------------
        c = this.getContentPane(); 
        c.setLayout(null);
@@ -87,7 +70,29 @@ public class User extends JFrame{
        c.add(userLabel);
        
        
-       //Handler Class-------------------------------------
+      
+       
+    }
+}
+public class User extends Init7{
+    
+    
+    User(){
+       super.initComponents();
+       initComponents(500,250,900,600);
+       initComponents();
+    }
+    
+    User(String s){
+        s1=s;
+       super.initComponents();
+       initComponents(500,250,900,600);
+       initComponents();
+    }
+    
+    @Override
+    void initComponents(){
+         //Handler Class-------------------------------------
        Handler handler = new Handler();
        
        //Cursor--------------------------------------------
@@ -110,8 +115,8 @@ public class User extends JFrame{
        btn1.addActionListener(handler);
        btn2.addActionListener(handler);
        btn3.addActionListener(handler);
-       
     }
+    
     class Handler implements ActionListener{
          public void actionPerformed(ActionEvent e) {
                if(e.getSource()==btn1){
